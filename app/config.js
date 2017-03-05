@@ -4,13 +4,13 @@ define(function() {
     var QMCONFIG = {
 
         qbAccount: {
-            appId: 36125,
-            authKey: 'gOGVNO4L9cBwkPE',
-            authSecret: 'JdqsMHCjHVYkVxV'
+            appId: 51994,
+            authKey: 'WnF8-gpP7CHRy94',
+            authSecret: 'BcPszAStfMYqCdV'
         },
 
         fbAccount: {
-            appId: '605405446247805',
+            appId: '229627770822723',
             scope: 'email,user_friends'
         },
 
