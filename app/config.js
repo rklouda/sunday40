@@ -2,7 +2,7 @@
 define(function() {
 
     var QMCONFIG = {
-
+ 
         qbAccount: {
             appId: 51994,
             authKey: 'WnF8-gpP7CHRy94',
