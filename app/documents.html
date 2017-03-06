@@ -83,41 +83,62 @@
                 </header>
    <div class="l-content l-flexbox">
         <!-- Users get -->
-        <div class="l-workspace-wrap">
-<h1>Registration Form</h1>  
-<p>Use tab keys to move from one input field to the next.</p>  
-<form name='registration' onSubmit="return formValidation();">  
-<ul>  
-<li><label for="username">Name:</label></li>  
-<li><input type="text" name="username" size="50" /></li>  
-<li><label for="address">Address:</label></li>  
-<li><input type="text" name="address" size="50" /></li>  
-<li><label for="country">Country:</label></li>  
-<li><select name="country">  
-<option selected="" value="Default">(Please select a country)</option>  
-<option value="AF">Australia</option>  
-<option value="AL">Canada</option>  
-<option value="DZ">India</option>  
-<option value="AS">Russia</option>  
-<option value="AD">USA</option>  
-</select></li>  
-<li><label for="zip">ZIP Code:</label></li>  
-<li><input type="text" name="zip" /></li>  
-<li><label for="email">Email:</label></li>  
-<li><input type="text" name="email" size="50" /></li>  
-<li><label id="gender">Sex:</label></li>  
-<li><input type="radio" name="msex" value="Male" /><span>Male</span></li>  
-<li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>  
-<li><label>Language:</label></li>  
-<li><input type="checkbox" name="en" value="en" checked /><span>English</span></li>  
-<li><input type="checkbox" name="nonen" value="noen" /><span>Non English</span></li>  
-<li><label for="desc">About:</label></li>  
-<li><textarea name="desc" id="desc"></textarea></li>  
-<li><input type="submit" name="submit" value="Submit" /></li>  
-</ul>  
-</form>  
-</body>  
-</html>
+        <div class="l-sidebar">
+          <h3>Get users</h3>
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="sel_filter_for_users">Select filter:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="sel_filter_for_users">
+                  <option value="1" selected="selected">all users, no filters</option>
+                  <option value="2">by id</option>
+                  <option value="3">by login</option>
+                  <option value="4">by fullname</option>
+                  <option value="5">by facebook id</option>
+                  <option value="6">by twitter id</option>
+                  <option value="7">by email</option>
+                  <option value="8">by tags</option>
+                  <option value="9">by external id</option>
+                  <option value="10">custom filters (check src code how to use)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="usrs_get_by_filter">Filter value:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="usrs_get_by_filter" placeholder="Enter a value for filter:">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" id="get_by" data-toggle="modal" data-target="#progressModal">Try</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      <div class="col-sm-6">
+        <h3>Output</h3>
+        <textarea readonly class="form-control" rows="7" id="output_place"></textarea>
+      </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div id="progressModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Processing</h4>
+          </div>
+          <div class="modal-body">
+            <p>performing request...</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <a href="https://github.com/QuickBlox/quickblox-javascript-sdk/tree/gh-pages/samples/users"
     style="position:absolute;top:2%;right:13%;font-size:0.85em;color:grey;">View source on GitHub</a>
