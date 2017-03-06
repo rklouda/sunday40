@@ -1,135 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js" prefix="og: http://ogp.me/ns#">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JetLoan</title>
-  <link rel="shortcut icon" href="https://quickblox.com/favicon.ico">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href=".css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Q-municate" />
+    <meta property="og:url" content="https://qm.quickblox.com/" />
+    <meta property="og:image:secure_url" content="https://qm.quickblox.com/images/qm-logo.svg" />
+    <meta property="og:image" content="http://qm.quickblox.com/images/qm-logo.svg" />
+    <meta property="og:description" content="Q-municate - the open-source, cross platform video calling and instant messaging app from Quickblox" />
+
+    <meta itemprop="name" content="Q-municate" />
+    <meta itemprop="description" content="Q-municate - the open-source, cross platform video calling and instant messaging app from Quickblox" />
+    <meta itemprop="image" content="https://qm.quickblox.com/images/qm-logo.svg" />
+
+    <meta name="twitter:domain" content="https://qm.quickblox.com/" />
+    <meta name="twitter:title" content="Q-municate">
+    <meta name="twitter:description" content="Q-municate - the open-source, cross platform video calling and instant messaging app from Quickblox" />
+    <meta name="twitter:image:src" content="https://qm.quickblox.com/images/qm-logo.svg" />
+
+    <title>Q-municate</title>
+    <meta name="description" content="Q-municate - the open-source, cross platform video calling and instant messaging app from Quickblox">
+
+    <link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://vjs.zencdn.net/5.11.6/video-js.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <!-- build:css styles/build.css -->
+    <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="bower_components/progressbar.js/css/lib/control/progressbar.css">
+    <link rel="stylesheet" href="vendor/emoji/css/minEmoji.css">
+    <link rel="stylesheet" href="bower_components/balloon-css/balloon.min.css">
+
+    <link rel="stylesheet" href=".css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
 </head>
-<body>
-  <div class="container">
-    <h1>Jet Loan US</h1>
-    <p class="tagline">Every Month a New Resolution</p>
-    <div class="nav">
-    <a class="navItem" href="index.html">JetLoan</a>
-      <a class="navItem" href="about.html">About</a>
-      <a class="navItem" href="contact.html">Contact</a>
-      <a class="navItem" href="contact.html">Documents</a>
-        <a class="navItem" href="applications.html">Applications</a>
-      <a class="navItem" href="chat.html">Chat</a>
-    </div>
-    <div class="jumbotron">
-      <h1>JetLoan Database Access</h1>
-      <p>Powered by QuickBlox</p>
-    </div>
+
+<script>
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        location.href = 'http://q-municate.com/';
+    }
+</script>
+<body class="is-welcome">
+    <!--[if lt IE 10]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <section id="mainPage" class="l-page l-chat_wrapper">
+            <div class="l-container">
+                <header class="l-header l-flexbox l-flexbox_flexbetween">
+                    <div class="header-logo">
+                     <a id="home" class="j-home" href="#">JET LOAN</a>
+                    </div>
+                    <ol class="header-links l-flexbox">
+                        <li class="header-links-item is-hidden">
+                            <a id="share" href="#">
+                                <img class="btn-icon btn-icon_fb_header icon-normal" src="images/icon-fb_header.svg" alt="fb">
+                                <img class="btn-icon btn-icon_fb_header icon-active" src="images/icon-fb_header_active.svg" alt="fb"> Share
+                            </a>
+                        </li>
+                        <li class="header-links-item">
+                            <a id="Applications" class="navItem" href="applications.html">Applications</a>
+                        </li>
+                        <li class="header-links-item">
+                            <a id="contacts" class="navItem" href="chat.html">Chat</a>
+                        </li>
+                        <li class="header-links-item">
+                            <a id="profile" href="#">
+                                <div class="avatar"></div>
+                            </a>
+                        </li>
+                    </ol>
+                </header>
+
+        <!-- Users get -->
+        <div class="l-sidebar">
+          <h3>Get users</h3>
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="sel_filter_for_users">Select filter:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="sel_filter_for_users">
+                  <option value="1" selected="selected">all users, no filters</option>
+                  <option value="2">by id</option>
+                  <option value="3">by login</option>
+                  <option value="4">by fullname</option>
+                  <option value="5">by facebook id</option>
+                  <option value="6">by twitter id</option>
+                  <option value="7">by email</option>
+                  <option value="8">by tags</option>
+                  <option value="9">by external id</option>
+                  <option value="10">custom filters (check src code how to use)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="usrs_get_by_filter">Filter value:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="usrs_get_by_filter" placeholder="Enter a value for filter:">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" id="get_by" data-toggle="modal" data-target="#progressModal">Try</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
     <div class="row">
       <div class="col-sm-6">
-
-        <!-- User create -->
-        <div class="row">
-          <h3>User Sign Up</h3>
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usr_sgn_p_lgn">Login:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="usr_sgn_p_lgn" placeholder="Enter login">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usr_sgn_p_pwd">Password:</label>
-              <div class="col-sm-6">
-                <input type="password" class="form-control" id="usr_sgn_p_pwd" placeholder="Enter password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary" id="sign_up" data-toggle="modal" data-target="#progressModal">Try</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- User login -->
-        <div class="row">
-          <h3>User Sign In</h3>
-      <form action="/action_page.php">
-    <div class="login-page">
-  <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name" />
-      <input type="password" placeholder="password" />
-      <input type="text" placeholder="email address" />
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
-  </div>
-</div>
-</form>
-        </div>
-
-        <!-- User social login -->
-<!--        <div class="row">
-          <h3>User Sign In with social provider</h3>
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usr_sgn_n_social_provider">Social provider:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="usr_sgn_n_social_provider" placeholder="facebook or twitter">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usr_sgn_n_social_token">Social token:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="usr_sgn_n_social_token" placeholder="Enter social token">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usr_sgn_n_social_secret">Social secret:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="usr_sgn_n_social_secret" placeholder="Enter social secret">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary" id="sign_in_social" data-toggle="modal" data-target="#progressModal">Try</button>
-              </div>
-            </div>
-          </form>
-        </div>
--->
-        <!-- User TWITTER_DIGITS login -->
-<!--        <div class="row">
-          <h3>User Sign In with Twitter Digits</h3>
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary digits-button" id="sign_in_twitter_digits">Try</button>
-              </div>
-            </div>
-          </form>
-        </div>
--->
-        <!-- User logout -->
-        <div class="row">
-          <h3>User Sign Out</h3>
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary" id="sign_out" data-toggle="modal" data-target="#progressModal">Try</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
         <!-- Users get -->
         <div class="row">
           <h3>Get users</h3>
@@ -263,7 +250,20 @@
 
   </div>
 
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+         
+          <footer class="l-footer l-flexbox l-flexbox_flexbetween">
+                <div class="footer-logo">
+                    <a href="https://quickblox.com" target="_blank"><img src="images/logo-quickblox-gray.svg" alt="QuickBlox"></a>
+                </div>
+                <div class="footer-apps l-flexbox">
+                    <a class="footer-apps-ios" href="https://itunes.apple.com/us/app/q-municate/id909698517?ls=1&mt=8" target="_blank"><img src="images/icon-ios.svg" alt="download Q-municate iOS"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.quickblox.q_municate" target="_blank"><img src="images/icon-android.svg" alt="download Q-municate Android"></a>
+                </div>
+
+                <div class="j-appVersion l-app-version"></div>
+
+            </footer>
+ <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -272,6 +272,8 @@
   <script src="https://cdn.digits.com/1/sdk.js" id="digits-sdk" async></script><!-- TWITTER_DIGITS SDK -->
 <!--  <script src="../../quickblox.min.js"></script> -->
   <script src="config.js"></script>
-  <script src="main.js"></script>
+  <script src="main.js"></script>  
+  
 </body>
+
 </html>
