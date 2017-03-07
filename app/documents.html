@@ -81,14 +81,37 @@
                         </li>
                     </ol>
                 </header>
+
    <div class="l-content l-flexbox">
+                    <aside class="l-sidebar">
+                        <form id="searchContacts" class="l-search localSearch formSearch j-localSearch">
+                            <input class="form-input-search without_M" type="search" placeholder="Search">
+                            <button class="clean-button j-clean-button" type="reset">✕</button>
+                        </form>
+                  <div class="container" style="position:relative;">
+                      
+                <section id="posts-contaner" class="l-list j-aside_list_item is-hidden">
+                <header class="l-list-header">
+                <h3 class="l-list-header-title">Requests</h3>
+                </header>
+                    <ul class="list j-list l-requestsList"></ul>
+                </section>  
+                      
+  <!--  <a href="https://github.com/QuickBlox/quickblox-javascript-sdk/tree/gh-pages/samples/customobjects"
+    style="position:absolute;top:20px;right:0px;font-size:0.85em;color:grey;">View source on GitHub</a>-->
+    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="get_all">Add new post</button>
+    <div id="posts-container"></div><!-- your posts will be here -->
+  </div><!-- /.container -->
+                       <p></p>
+
+                    </aside>
         <!-- Users get -->
-        <div class="l-sidebar">
+        <div class="containter">
           <h3>Get users</h3>
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
+          <form class="dropdown" role="form">
+            <div class="dropdown">
               <label class="control-label col-sm-2" for="sel_filter_for_users">Select filter:</label>
-              <div class="col-sm-6">
+              <div class="dropdown">
                 <select class="form-control" id="sel_filter_for_users">
                   <option value="1" selected="selected">all users, no filters</option>
                   <option value="2">by id</option>
@@ -102,27 +125,25 @@
                   <option value="10">custom filters (check src code how to use)</option>
                 </select>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="usrs_get_by_filter">Filter value:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="usrs_get_by_filter" placeholder="Enter a value for filter:">
-              </div>
+            <div class="userProfile-field userProfile-field_phone userProfile-edit">
+                <span class="userDetails-label">Filter:</span>
+                <input class="userProfile-phone editable-profile without_M" type="text" id="usrs_get_by_filter>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="button" class="btn btn-primary" id="get_by" data-toggle="modal" data-target="#progressModal">Try</button>
-              </div>
             </div>
-          </form>
+          </div>
         </div>
-
+          </form>
+       </div>
       <div class="col-sm-6">
         <h3>Output</h3>
-        <textarea readonly class="form-control" rows="7" id="output_place"></textarea>
+        <textarea readonly class="form-control" rows="25" id="output_place"></textarea>
       </div>
     </div>
-
+   
+         
     <!-- Modal -->
 
     <div id="progressModal" class="modal fade" role="dialog">
@@ -158,10 +179,11 @@
                 <div class="j-appVersion l-app-version"></div>
 
             </footer>
+              
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/quickblox/2.4.0/quickblox.min.js"></script>
   
   <script src="https://cdn.digits.com/1/sdk.js" id="digits-sdk" async></script><!-- TWITTER_DIGITS SDK -->

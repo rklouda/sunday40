@@ -136,7 +136,35 @@ $(document).ready(function() {
 
   // Get users
   //
-  $('#get_by').on('click', function() {
+$('#get_all').on('click', function() {
+//function getAllUsers() {
+    var filter_value = $('#usrs_get_by_filter').val();
+    var filter_type = $("#sel_filter_for_users option:selected").val();
+
+    var params;
+        params = { page: '1', per_page: '100'};
+
+    console.log("filter_value: " + filter_value);
+
+      QB.users.listUsers(params, function(err, result){
+        if (result) {
+			console.log(result);
+      for (var i=0; i < result.items.length; i++) {
+				var item = result.items[result.items.length-i-1];
+				console.log(item.user.full_name);
+				showPost(item.user.full_name, item.user.email, false);}
+        } else  {
+        			console.log(err);
+        };
+        console.log("current_page fuction: " + result.current_page);
+        console.log("per_page: " + result.per_page);
+        console.log("total_entries: " + result.total_entries);
+        console.log("count: " + result.items.length);
+  });
+});
+  
+  //users
+    $('#get_by').on('click', function() {
     var filter_value = $('#usrs_get_by_filter').val();
     var filter_type = $("#sel_filter_for_users option:selected").val();
 
@@ -304,3 +332,58 @@ $(document).ready(function() {
     });
   });
 });
+
+function getAllPosts() {
+	QB.data.list("Application", filter, function(err, result){
+		if (err) { 
+			console.log(err);
+		} else {
+			console.log(result);
+
+			for (var i=0; i < result.items.length; i++) {
+				var item = result.items[result.items.length-i-1];
+				showPost(item.FullName, item.email, false);
+			}	
+		}
+	});
+}
+
+function addNewPost(textTitle, textBody) {
+	QB.data.create("Application", {FullName: textTitle, email: textBody}, function(err, res){
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(res);
+
+			$("#load-img").delay(1000).fadeOut(1000);
+			$('#myModal').modal('hide');
+			$('#title_post').val('');
+			$('#body_post').val('');
+
+			QB.data.list("Application", filter, function(err, result){
+				if (err) { 
+					console.log(err);
+				} else {
+					console.log(result);
+
+					showPost(textTitle, textBody, true);
+				}
+			});
+		}
+	});
+}
+
+function showPost(textTitle, textBody, lastPost) {
+	var containerElement = $('#posts-container');
+	var postElement = $('<div></div>').addClass('starter-template');
+	var postTitle = $('<h2></h2>').html(textTitle);
+			postElement.append(postTitle);
+	var postBody = $('<p></p>').addClass('lead').html(textBody);
+			postElement.append(postBody);
+
+	if (lastPost) {
+		containerElement.prepend(postElement);
+	} else {
+		containerElement.append(postElement);
+	}		
+};
