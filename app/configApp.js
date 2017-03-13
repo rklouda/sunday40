@@ -3,3 +3,7 @@ var QBApp = {
   authKey: 'WnF8-gpP7CHRy94',
   authSecret: 'BcPszAStfMYqCdV'
 };
+var QBUser = {
+	login: "rgklouda@comcast.net",   
+	password: "12345678" 
+};
