@@ -37,11 +37,20 @@
     <link rel="stylesheet" href="bower_components/balloon-css/balloon.min.css">
 
     <link rel="stylesheet" href=".css/main.css">
+    
+
     <!-- endbuild -->
+<!-- dependencies (jquery, handlebars and bootstrap) -->
 
     <!-- build:js vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+           <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+        <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.23/bootstrap/alpaca.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.js"></script>
+        <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.23/bootstrap/alpaca.min.js"></script>
+  
+
 </head>
 
 <script>
@@ -49,6 +58,7 @@
         location.href = 'http://q-municate.com/';
     }
 </script>
+
 <body class="is-welcome">
     <!--[if lt IE 10]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -71,8 +81,8 @@
                         <li class="header-links-item">
                             <a id="Applications" class="navItem" href="app.html">Applications</a>
                         </li>
-                         <li class="header-links-item">
-                            <a id="contacts" class="createGroupChat" href="#">Contacts</a>
+                        <li class="header-links-item">
+                            <a id="contacts" class="navItem" href="index.html">Contracts</a>
                         </li>
                         <li class="header-links-item">
                             <a id="profile" href="#">
@@ -82,116 +92,98 @@
                     </ol>
                 </header>
 
-   <div class="l-content l-flexbox">
-     <aside class="l-sidebar">
-                        <form id="searchContacts" class="l-search localSearch formSearch j-localSearch">
-                            <input class="form-input-search without_M" type="search" placeholder="Search">
-                            <button class="clean-button j-clean-button" type="reset">✕</button>
-                        </form>
-                        
-                        <section id="requestsList" class="l-list j-aside_list_item is-hidden">
-                                <header class="l-list-header">
-                                    <h3 class="l-list-header-title">Requests</h3>
-                                </header>
-                                <ul class="list j-list l-requestsList"></ul>
-                        </section>
-                        
-               <p></p>
-  <div class="container" style="position:relative;">
- <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="get_all">Get All Users</button>
- <div id="posts-container"></div><!-- your posts will be here -->
- <p></p>
- <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="get_all_posts">Get All Apps</button>
- <div id="posts-container"></div><!-- your posts will be here -->
-  </div><!-- /.container -->
-                </aside>
-                    
-        <!-- Users get -->
-        <div class="containter">
-          <h3>Get users</h3>
-          <form class="dropdown" role="form">
-            <div class="dropdown">
-              <label class="control-label col-sm-2" for="sel_filter_for_users">Select filter:</label>
-              <div class="dropdown">
-                <select class="form-control" id="sel_filter_for_users">
-                  <option value="1" selected="selected">all users, no filters</option>
-                  <option value="2">by id</option>
-                  <option value="3">by login</option>
-                  <option value="4">by fullname</option>
-                  <option value="5">by facebook id</option>
-                  <option value="6">by twitter id</option>
-                  <option value="7">by email</option>
-                  <option value="8">by tags</option>
-                  <option value="9">by external id</option>
-                  <option value="10">custom filters (check src code how to use)</option>
-                </select>
-              </div>
-            <div class="userProfile-field userProfile-field_phone userProfile-edit">
-                <span class="userDetails-label">Filter:</span>
-                <input class="userProfile-phone editable-profile without_M" type="text" id="usrs_get_by_filter>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary" id="get_by" data-toggle="modal" data-target="posts-container">Try</button>
-            </div>
-          </div>
-        </div>
-          </form>
-       </div>
-      <div class="col-sm-6">
-        <h3>Output</h3>
-        <textarea readonly class="form-control" rows="25" id="output_place"></textarea>
-      </div>
-    </div>
-   
-         
-    <!-- Modal -->
+         <div id="form"></div>
+        <script type="text/javascript">
+                $("#form").alpaca({
+                    "data": {
+                        "name": "Diego Maradona",
+                        "feedback": "Very impressive.",
+                        "ranking": "excellent"
+                    },
+                    "schema": {
+                        "title":"User Feedback",
+                        "description":"What do you think about Alpaca?",
+                        "type":"object",
+                        "properties": {
+                            "name": {
+                                "type":"string",
+                                "title":"Name",
+                                "required":true
+                            },
+                            "feedback": {
+                                "type":"string",
+                                "title":"Feedback"
+                            },
+                            "ranking": {
+                                "type":"string",
+                                "title":"Ranking",
+                                "enum":['excellent','ok','so so'],
+                                "required":true
+                            }
+                        }
+                    },
+                    "options": {
+                        "form":{
+                            "attributes":{
+                                "action":"http://httpbin.org/post",
+                                "method":"post"
+                            },
+                            "buttons":{
+                                "submit":{
+                                    "title": "Send Form Data",
+                                    "click": function() {
+                                        var val = this.getValue();
+                                        if (this.isValid(true)) {
+                                            alert("Valid value: " + JSON.stringify(val, null, "  "));
+                                            this.ajaxSubmit().done(function() {
+                                                alert("Posted!");
+                                            });
+                                        } else {
+                                            alert("Invalid value: " + JSON.stringify(val, null, "  "));
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "helper": "Tell us what you think about Alpaca!",
+                        "fields": {
+                            "name": {
+                                "size": 20,
+                                "helper": "Please enter your name."
+                            },
+                            "feedback" : {
+                                "type": "textarea",
+                                "name": "your_feedback",
+                                "rows": 5,
+                                "cols": 40,
+                                "helper": "Please enter your feedback."
+                            },
+                            "ranking": {
+                                "type": "select",
+                                "helper": "Select your ranking.",
+                                "optionLabels": ["Awesome!",
+                                    "It's Ok",
+                                    "Hmm..."]
+                            }
+                        }
+                    },
+                    "postRender": function(control) {
+                        control.childrenByPropertyId["name"].getFieldEl().css("background-color", "lightgreen");
+                    }
+                });
 
-    <div id="progressModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Processing</h4>
-          </div>
-          <div class="modal-body">
-            <p>performing request...</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <a href="https://github.com/QuickBlox/quickblox-javascript-sdk/tree/gh-pages/samples/users"
-    style="position:absolute;top:2%;right:13%;font-size:0.85em;color:grey;">View source on GitHub</a>
-
-  </div>
-
-         
-          <footer class="l-footer l-flexbox l-flexbox_flexbetween">
-                <div class="footer-logo">
-                    <a href="https://quickblox.com" target="_blank"><img src="images/logo-quickblox-gray.svg" alt="QuickBlox"></a>
-                </div>
-                <div class="footer-apps l-flexbox">
-                    <a class="footer-apps-ios" href="https://itunes.apple.com/us/app/q-municate/id909698517?ls=1&mt=8" target="_blank"><img src="images/icon-ios.svg" alt="download Q-municate iOS"></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.quickblox.q_municate" target="_blank"><img src="images/icon-android.svg" alt="download Q-municate Android"></a>
-                </div>
-
-                <div class="j-appVersion l-app-version"></div>
-
-            </footer>
-              
+        </script>
+    
+  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.23/bootstrap/alpaca.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/quickblox/2.4.0/quickblox.min.js"></script>
   
   <script src="https://cdn.digits.com/1/sdk.js" id="digits-sdk" async></script><!-- TWITTER_DIGITS SDK -->
 <!--  <script src="../../quickblox.min.js"></script> -->
   <script src="configApp.js"></script>
-  <script src="mainApp.js"></script>  
-  
+  <script src="app.js"></script>  
 </body>
-
 </html>

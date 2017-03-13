@@ -11,6 +11,9 @@ $(document).ready(function() {
     console.log('Session create callback', err, result);
   });
 
+var sessionToken = 'e9bfc08d3f764924d63548fef10ed2e97100cb1a';
+QB.init(sessionToken, QBApp.appId);
+
   // Init Twitter Digits
   //
 
@@ -333,7 +336,10 @@ $('#get_all').on('click', function() {
   });
 });
 
-function getAllPosts() {
+	var filter = {sort_asc: 'created_at'};
+	
+$('#get_all_posts').on('click', function() {
+//function getAllPosts() {
 	QB.data.list("Application", filter, function(err, result){
 		if (err) { 
 			console.log(err);
@@ -346,9 +352,12 @@ function getAllPosts() {
 			}	
 		}
 	});
-}
+});
 
 function addNewPost(textTitle, textBody) {
+  var sessionToken = 'ae60b2eba8d717b9613b7d4f9de2adb7e100cb1a';
+QB.init(sessionToken, QBApp.appId);
+  
 	QB.data.create("Application", {FullName: textTitle, email: textBody}, function(err, res){
 		if (err) {
 			console.log(err);
