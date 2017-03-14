@@ -11,7 +11,7 @@ $(document).ready(function() {
     console.log('Session create callback', err, result);
   });
 
-var sessionToken = 'e9bfc08d3f764924d63548fef10ed2e97100cb1a';
+var sessionToken = '9b5c7ae25220d41ef528c2a43e1a59656300cb1a';
 QB.init(sessionToken, QBApp.appId);
 
   // Init Twitter Digits
@@ -165,7 +165,30 @@ $('#get_all').on('click', function() {
         console.log("count: " + result.items.length);
   });
 });
-  
+$('#get_all_posts').on('click', function() {
+//function getAllPosts() {
+	QB.data.list("Application", filter, function(err, result){
+        if (result) {
+          $('#output_place').val(JSON.stringify(result));
+        } else  {
+          $('#output_place').val(JSON.stringify(err));
+        }
+
+        console.log("current_page: " + result.current_page);
+        console.log("per_page: " + result.per_page);
+        console.log("total_entries: " + result.total_entries);
+        console.log("count: " + result.items.length);
+
+        $("#progressModal").modal("hide");
+
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        
+			for (var i=0; i < result.items.length; i++) {
+				var item = result.items[result.items.length-i-1];
+				showPost(item.FullName, item.email, false);
+			}	
+		});
+	});
   //users
     $('#get_by').on('click', function() {
     var filter_value = $('#usrs_get_by_filter').val();
