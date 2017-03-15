@@ -1,7 +1,5 @@
 QB.init(QBApp.appId, QBApp.authKey, QBApp.authSecret, true);
 
-$(document).ready(function() {
-
 sessionToken = 'bb99db42cf9d6b22ae9911968723448e2e00cb1a';
 QB.init(sessionToken, QBApp.appId);
 
@@ -29,4 +27,3 @@ QB.data.create("Application", {FullName: textName, email: textEmail}, function(e
 		}
 	});
 };
-});
