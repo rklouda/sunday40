@@ -4,6 +4,6 @@ var QBApp = {
   authSecret: 'BcPszAStfMYqCdV'
 };
 var QBUser = {
-	login: "rgklouda@comcast.net",   
+	login: "rob@gmail.com",   
 	password: "12345678" 
 };

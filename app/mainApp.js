@@ -9,10 +9,32 @@ $(document).ready(function() {
   //
   QB.createSession(function(err,result){
     console.log('Session create callback', err, result);
+    
+    	var filter = {sort_asc: 'created_at'};
+	
+//$('#get_all_posts').on('click', function() {
+//function getAllPosts() {
+	QB.data.list("Application", filter, function(err, result){
+		if (err) { 
+			console.log(err);
+		} else {
+			console.log(result);
+
+			for (var i=0; i < result.items.length; i++) {
+				var item = result.items[result.items.length-i-1];
+//				showPost(item.FullName, item.email, false);
+          console.log("Applications:" + item.FullName);
+    // 
+		 $("ul").append("<a href='#' class='list-group-item'>" + item.FullName + "</a>");
+			}//	("<div class='list-group-item'>" + item.FullName + "</div>");
+		}
+	});
+    
+    
   });
 
-var sessionToken = '9b5c7ae25220d41ef528c2a43e1a59656300cb1a';
-QB.init(sessionToken, QBApp.appId);
+//var sessionToken = '9b5c7ae25220d41ef528c2a43e1a59656300cb1a';
+//QB.init(sessionToken, QBApp.appId);
 
   // Init Twitter Digits
   //
@@ -165,7 +187,7 @@ $('#get_all').on('click', function() {
         console.log("count: " + result.items.length);
   });
 });
-$('#get_all_posts').on('click', function() {
+/*$('#get_all_posts').on('click', function() {
 //function getAllPosts() {
 	QB.data.list("Application", filter, function(err, result){
         if (result) {
@@ -189,6 +211,7 @@ $('#get_all_posts').on('click', function() {
 			}	
 		});
 	});
+*/	
   //users
     $('#get_by').on('click', function() {
     var filter_value = $('#usrs_get_by_filter').val();
@@ -361,7 +384,7 @@ $('#get_all_posts').on('click', function() {
 
 	var filter = {sort_asc: 'created_at'};
 	
-$('#get_all_posts').on('click', function() {
+//$('#get_all_posts').on('click', function() {
 //function getAllPosts() {
 	QB.data.list("Application", filter, function(err, result){
 		if (err) { 
@@ -371,11 +394,15 @@ $('#get_all_posts').on('click', function() {
 
 			for (var i=0; i < result.items.length; i++) {
 				var item = result.items[result.items.length-i-1];
-				showPost(item.FullName, item.email, false);
-			}	
+//				showPost(item.FullName, item.email, false);
+          console.log("Applications:" + item.FullName);
+    // 
+		 $("ul").append("<a href='#' class='list-group-item'>" + item.FullName + "</a>");
+			}//	("<div class='list-group-item'>" + item.FullName + "</div>");
 		}
 	});
-});
+//});
+//}
 
 function addNewPost(textTitle, textBody) {
   var sessionToken = 'ae60b2eba8d717b9613b7d4f9de2adb7e100cb1a';
