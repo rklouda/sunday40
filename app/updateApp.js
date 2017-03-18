@@ -27,11 +27,8 @@ $(document).ready(function() {
 			for (var i=0; i < result.items.length; i++) {
 				var item = result.items[result.items.length-i-1];
 //				showPost(item.FullName, item.email, false);
-          console.log("Applications:" + item.FullName + item._id + item.user_id);
-          var show = JSON.stringify(item, null, "  ");
-        
-		 $("ulapp").append("<a href='javascript:getRecord();' class='list-group-item'>" + item.FullName + '-' + item._id +'-'+ item.user_id +'-'+ item.created_at + "</a>");
-		 
+          console.log("Applications:" + item.FullName + item.id + item.user_id);
+      //    var show = JSON.stringify(item, null, "  ");
 			}//	("<div class='list-group-item'>" + item.FullName + "</div>");
 		}
 	});
@@ -39,33 +36,14 @@ $(document).ready(function() {
     
   });
 
-function alertapp() {
-                                        var val = this.getValue();
-                                        if (this.isValid(true)) {
-                                            alert("Valid value: " + JSON.stringify(val, null, "  "));
-                                            this.ajaxSubmit().done(function() {
-                                                alert("Posted!");
-                                            });
-                                        } else {
-                                            alert("Invalid value: " + JSON.stringify(val, null, "  "));
-                                        }
-                                    }
-
-
 //$('#getRecord').on('click', function(recordID) {  
-function getRecord() {
-QB.data.list("Application", "58989598a28f9a134400003c", function(err, result){
+function getRecord(recordID) {
+QB.data.list("Application", recordID, function(err, result){
     if (err) { 
         console.log("Error" + err + recordID);
     } else {
         console.log("Got it" + result);
-                var val = this.getValue();
-                    alert("Valid value: " + JSON.stringify(result, null, "  "));
-                 //  this.ajaxSubmit().done(function() {
-                //     alert("Posted!");
-                     }
-                    // );
-    //}
+    }
 });
 };
 
@@ -418,7 +396,7 @@ $('#get_all').on('click', function() {
     });
   });
 });
-/*
+
 	var filter = {sort_asc: 'created_at'};
 	
 //$('#get_all_posts').on('click', function() {
@@ -440,7 +418,7 @@ $('#get_all').on('click', function() {
 	});
 //});
 //}
-*/
+
 function addNewPost(textTitle, textBody) {
   var sessionToken = 'ae60b2eba8d717b9613b7d4f9de2adb7e100cb1a';
 QB.init(sessionToken, QBApp.appId);
