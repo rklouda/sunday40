@@ -23,7 +23,7 @@ $(document).ready(function() {
 //				showPost(item.FullName, item.email, false);
           console.log("Applications:" + item.FullName + item._id + item.user_id);
 
-		 $("ulapp").append("<a href='#' id='app' class='list-group-item'>" + item._id +"</a>");
+		 $("ulapp").append("<a href='#' role ='button' id='app' class='list-group-item'>" + item._id +"</a>");
 		 // + item.FullName + '-' + item._id +'-'+ item.user_id +'-'+ item.created_at + 
 			}//	("<div class='list-group-item'>" + item.FullName + "</div>");
 		}
@@ -65,11 +65,12 @@ QB.data.update(className, param, function(err, res){
         console.log("submit error" + err);
          alert("Update Failed" + err);
     } else {
-        console.log("submit worked" + res);
+        console.log("Update Successful" + res);
         alert("Udated Successful" + res);
     }
+    
 });
-
+$(this).blur();
 });
 
  var $this;
