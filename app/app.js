@@ -27,3 +27,19 @@ QB.data.create("Application", {FullName: textName, email: textEmail}, function(e
 		}
 	});
 };
+QB.data.list("Application", "58989598a28f9a134400003c", function(err, result){
+    
+    if (err) { 
+        console.log("Error" + err);
+    } else {
+        console.log("Got it" + result);
+        document.getElementById("name").value = result.FullName;
+                var val = this.getValue();
+                    alert("Valid value: " + JSON.stringify(result, null, "  "));
+                    document.getElementById("usr").value = result;
+                 //  this.ajaxSubmit().done(function() {
+                //     alert("Posted!");
+                     }
+                    // );
+    //}
+});

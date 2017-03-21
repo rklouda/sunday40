@@ -28,9 +28,8 @@ $(document).ready(function() {
 				var item = result.items[result.items.length-i-1];
 //				showPost(item.FullName, item.email, false);
           console.log("Applications:" + item.FullName + item._id + item.user_id);
-          var show = JSON.stringify(item, null, "  ");
-        
-		 $("ulapp").append("<a href='javascript:getRecord();' class='list-group-item'>" + item.FullName + '-' + item._id +'-'+ item.user_id +'-'+ item.created_at + "</a>");
+
+		 $("ulapp").append("<a href='javascript: getRecord()' class='list-group-item'>" + item.FullName + '-' + item._id +'-'+ item.user_id +'-'+ item.created_at + "</a>");
 		 
 			}//	("<div class='list-group-item'>" + item.FullName + "</div>");
 		}
@@ -56,9 +55,9 @@ function alertapp() {
 function getRecord() {
 QB.data.list("Application", "58989598a28f9a134400003c", function(err, result){
     if (err) { 
-        console.log("Error" + err + recordID);
+        console.log("Error" + err);
     } else {
-        console.log("Got it" + result);
+        console.log("Got it");
                 var val = this.getValue();
                     alert("Valid value: " + JSON.stringify(result, null, "  "));
                  //  this.ajaxSubmit().done(function() {

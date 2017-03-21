@@ -75,9 +75,6 @@
                                 <img class="btn-icon btn-icon_fb_header icon-normal" src="images/icon-fb_header.svg" alt="fb">
                                 <img class="btn-icon btn-icon_fb_header icon-active" src="images/icon-fb_header_active.svg" alt="fb"> Share
                             </a>
-                        <li class="header-links-item">
-                            <a id="Edit" class="navItem" href="start1.html">Edit</a>
-                        </li>
                        <li class="header-links-item">
                             <a id="Documents" class="navItem" href="documents.html">Documents</a>
                         </li>
@@ -102,7 +99,7 @@
       <a class="navbar-brand" href="#">Application</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="start.html">Start</a></li>
+      <li class="active"><a href="#">Home</a></li>
       <li><a href="AppLoad.html">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
@@ -110,125 +107,6 @@
   </div>
 </nav>
 
-<div class="row">
-    <div id="content" class="container" >
-        <div class="padding-wrapper">
-            <div class="row">
-                <div class="col-md-12">
-                    <section class="app-content">
-                        <div class="col-xs-12" id="content-holder">
-<h3>Your Applications</h3> 
-
-     <div><ulapp></ulapp>
-
-     </div>
-
-<div style="border-top: 1px solid #ccc; padding-top: 20px; margin-top: 40px; text-align: right;">
-  
-    <a href="/app/startNew" class="btn btn-info btn-lg">Start New Application</a>
-</div>
-
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        
-  <div class="form-group">
-  <label for="usr">Name:</label>
-  <input type="text" class="form-control" id="usr">
-</div>
-<div class="form-group">
-  <label for="pwd">email:</label>
-  <input type="text" class="form-control" id="pwd">
-</div>
-
-   <div class="l-content l-flexbox">
-     <aside class="l-sidebar">
-                        <form id="searchContacts" class="l-search localSearch formSearch j-localSearch">
-                            <input class="form-input-search without_M" type="search" placeholder="Search">
-                            <button class="clean-button j-clean-button" type="reset">✕</button>
-                        </form>
-                        
-                        <section id="requestsList" class="l-list j-aside_list_item">
-                                <header class="l-list-header">
-                                    <h3 class="l-list-header-title">Requests</h3>
-                                </header>
-                           
-    
-                        </section>
-                        
-               <p></p>
-               
-               
-  <div class="container" style="position:relative;">
- <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="get_all">Get All Users</button>
- <div id="posts-container"></div><!-- your posts will be here -->
- <p></p>
- <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="get_all_posts">Get All Apps</button>
- <div id="posts-container"></div><!-- your posts will be here -->
-  </div><!-- /.container -->
-                </aside>
-                
- 
-
-
-        <!-- Users get -->
-        <div class="containter">
-          <h3>Get users</h3>
-          <form class="dropdown" role="form">
-            <div class="dropdown">
-              <label class="control-label col-sm-2" for="sel_filter_for_users">Select filter:</label>
-              <div class="dropdown">
-                <select class="form-control" id="sel_filter_for_users">
-                  <option value="1" selected="selected">all users, no filters</option>
-                  <option value="2">by id</option>
-                  <option value="3">by login</option>
-                  <option value="4">by fullname</option>
-                  <option value="5">by facebook id</option>
-                  <option value="6">by twitter id</option>
-                  <option value="7">by email</option>
-                  <option value="8">by tags</option>
-                  <option value="9">by external id</option>
-                  <option value="10">custom filters (check src code how to use)</option>
-                </select>
-              </div>
-            <div class="userProfile-field userProfile-field_phone userProfile-edit">
-                <span class="userDetails-label">Filter:</span>
-                <input class="userProfile-phone editable-profile without_M" type="text" id="usrs_get_by_filter>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-primary" id="get_by" data-toggle="modal" data-target="posts-container">Try</button>
-            </div>
-          </div>
-        </div>
-          </form>
-       </div>
-      <div class="col-sm-6">
-        <h3>Output</h3>
-        <textarea readonly class="form-control" rows="25" id="output_place"></textarea>
-      </div>
-    </div>
-   
-         
-    <!-- Modal -->
-
-    <div id="progressModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Processing</h4>
-          </div>
-          <div class="modal-body">
-            <p>performing request...</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <a href="https://github.com/QuickBlox/quickblox-javascript-sdk/tree/gh-pages/samples/users"
     style="position:absolute;top:2%;right:13%;font-size:0.85em;color:grey;">View source on GitHub</a>
@@ -258,7 +136,7 @@
   <script src="https://cdn.digits.com/1/sdk.js" id="digits-sdk" async></script><!-- TWITTER_DIGITS SDK -->
 <!--  <script src="../../quickblox.min.js"></script> -->
   <script src="configApp.js"></script>
-  <script src="mainApp.js"></script>  
+  <script src="AppLoad.js"></script>  
   
 </body>
 
