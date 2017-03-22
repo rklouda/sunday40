@@ -2608,6 +2608,7 @@ article.message[data-status="typing"] > div {
 
 .btn-icon_mediacall {
   vertical-align: text-bottom; }
+   /* Style the close button */
 
 #fullModeOn {
   width: 21px;
